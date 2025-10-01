@@ -1,0 +1,44 @@
+# Assignment 3: Robot Tracking Configuration
+
+assignment3_tracking:
+  ros__parameters:
+    # Control Algorithm Selection
+    use_pure_pursuit: true    # true for Pure Pursuit, false for Stanley
+    
+    # Vehicle Parameters
+    forward_speed: 2.0        # m/s - constant forward speed
+    wheelbase: 0.33          # meters - vehicle wheelbase
+    max_steering: 0.4        # radians - maximum steering angle
+    
+    # Pure Pursuit Parameters
+    lookahead_distance: 1.5   # meters - lookahead distance
+    min_lookahead: 0.5       # meters - minimum lookahead distance
+    max_lookahead: 3.0       # meters - maximum lookahead distance
+    adaptive_lookahead: false # Enable speed-adaptive lookahead
+    lookahead_ratio: 0.3     # lookahead = speed * ratio (if adaptive)
+    
+    # Stanley Parameters
+    k_e: 0.3                 # Cross-track error gain
+    k_s: 2.0                 # Soft normalization constant
+    max_crosstrack_error: 2.0 # meters - maximum cross-track error to consider
+    
+    # Waypoint Management
+    waypoint_threshold: 1.0   # meters - distance to switch to next waypoint
+    completion_threshold: 0.5 # meters - distance to consider waypoint reached
+    path_loop: false         # Whether to loop back to start after finishing
+    
+    # Path Parameters
+    waypoint_file: ""        # CSV file with waypoints (empty = use default)
+    default_path_type: "oval" # "oval", "figure8", "straight" - default path type
+    path_scale: 1.0          # Scale factor for default paths
+    
+    # Performance Monitoring
+    track_performance: true   # Enable performance metrics
+    log_cross_track_error: true  # Log cross-track error
+    log_heading_error: true   # Log heading error
+    log_frequency: 10.0      # Hz - logging frequency
+    
+    # Visualization
+    publish_path_viz: true    # Publish path visualization markers
+    publish_vehicle_viz: true # Publish vehicle state visualization
+    viz_frequency: 2.0       # Hz - visualization update frequency

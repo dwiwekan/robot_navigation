@@ -1,0 +1,20 @@
+# Assignment 1: Automatic Emergency Braking (AEB) Configuration
+
+assignment1_aeb:
+  ros__parameters:
+    # AEB Parameters
+    ttc_threshold: 0.5        # seconds - emergency brake if TTC below this
+    speed_threshold: 0.1      # m/s - only activate AEB above this speed
+    angular_range: 0.2618     # radians (15 degrees) - front-facing detection range
+    
+    # Vehicle Parameters  
+    max_speed: 3.0           # m/s - maximum allowed speed
+    emergency_brake_decel: -5.0  # m/s^2 - emergency braking deceleration
+    
+    # Safety Parameters
+    min_detection_distance: 0.1   # meters - ignore closer obstacles (sensor noise)
+    max_detection_distance: 10.0  # meters - ignore farther obstacles
+    
+    # Logging
+    debug_mode: true         # Enable detailed logging
+    log_frequency: 10.0      # Hz - how often to log debug info

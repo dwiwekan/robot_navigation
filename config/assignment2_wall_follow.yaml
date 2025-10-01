@@ -1,0 +1,34 @@
+# Assignment 2: Wall Following Configuration
+
+assignment2_wall_follow:
+  ros__parameters:
+    # Wall Following Parameters
+    desired_distance: 1.0     # meters - target distance from wall
+    forward_speed: 1.5        # m/s - constant forward speed
+    
+    # Control Selection
+    use_pid: true            # true for PID, false for bang-bang
+    
+    # Bang-Bang Control Parameters
+    steering_angle_high: 0.4  # radians - steer away from wall
+    steering_angle_low: -0.4  # radians - steer toward wall
+    dead_zone: 0.1           # meters - error dead zone for bang-bang
+    
+    # PID Control Parameters
+    kp: 1.0                  # Proportional gain
+    ki: 0.0                  # Integral gain
+    kd: 0.1                  # Derivative gain
+    
+    # PID Limits
+    max_integral: 1.0        # Maximum integral term
+    max_steering: 0.4        # radians - maximum steering angle
+    
+    # Wall Detection Parameters
+    wall_angle_min: -1.5708  # radians (-90 degrees) - start of wall detection range
+    wall_angle_max: -0.5236  # radians (-30 degrees) - end of wall detection range
+    min_wall_distance: 0.1   # meters - minimum valid wall distance
+    max_wall_distance: 5.0   # meters - maximum valid wall distance
+    
+    # Performance Monitoring
+    track_performance: true   # Enable performance tracking
+    log_frequency: 5.0       # Hz - logging frequency
